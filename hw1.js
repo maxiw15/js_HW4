@@ -1,13 +1,22 @@
- function getPasswordChecker(password){
-    let result = false
-     check()
-     function check(){
-         let secret_password = "my_Secret_PS"
-         result = (password === secret_password)
+function getPasswordChecker(password) {
+    return function(guess) {
+        if (password === guess) {
+            return true;
+        }
+        return false;
     }
-        return result
- }
+}
 
- console.log(getPasswordChecker("my_Secret_PS"))
- console.log(getPasswordChecker("eror"))
- // console.log(secret_password)
+function getPasswordChecker(password) {
+    return function(guess) {
+        if (password === guess) {
+            return true;
+        }
+        return false;
+    }
+}
+
+const check = getPasswordChecker('P@ssw0rd');
+
+console.log(check('P@ssw1rd'));
+console.log(check('P@ssw0rd'));
